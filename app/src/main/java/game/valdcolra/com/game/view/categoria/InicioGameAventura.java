@@ -8,36 +8,25 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.widget.Toast;
-
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
 
 import game.valdcolra.com.game.R;
 
-public class InicioGamePlataforma extends AppCompatActivity {
+public class InicioGameAventura extends AppCompatActivity {
     WebView webViewUno;
     SwipeRefreshLayout swipeRefreshLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_inicio_game);
-        /*Banner*/
-        AdView mAdView = (AdView) findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder().build();
-        mAdView.loadAd(adRequest);
-
+        setContentView(R.layout.activity_inicio_game_aventura);
         webViewUno = (WebView) findViewById(R.id.webViewUno);
         swipeRefreshLayout = (SwipeRefreshLayout)findViewById(R.id.swiperefresh);
 
         webViewUno.getSettings().setJavaScriptEnabled(true);
-
         webViewUno.setWebViewClient(new WebViewClient());
 
 
-
         if (isOnline(getApplicationContext())) {
-            webViewUno.loadUrl("https://juanvaldemar.com/juegos/plataforma/");
+            webViewUno.loadUrl("http://192.168.0.100/w/");
             // Toast.makeText(getApplicationContext(), "si internet no archivo",Toast.LENGTH_SHORT).show();
         } else {
             webViewUno.loadUrl("file:///android_asset/www/404.html");
@@ -48,7 +37,7 @@ public class InicioGamePlataforma extends AppCompatActivity {
             @Override
             public void onRefresh() {
                 if (isOnline(getApplicationContext())) {
-                    webViewUno.loadUrl("https://juanvaldemar.com/juegos/plataforma/");
+                    webViewUno.loadUrl("http://192.168.0.100/w/");
                     // Toast.makeText(getApplicationContext(), "si internet no archivo",Toast.LENGTH_SHORT).show();
                 } else {
                     webViewUno.loadUrl("file:///android_asset/www/404.html");
