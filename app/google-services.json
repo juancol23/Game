@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "450033359342",
+    "firebase_url": "https://game-7b896.firebaseio.com",
+    "project_id": "game-7b896",
+    "storage_bucket": "game-7b896.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:450033359342:android:e0a0b9d865cf9176",
+        "android_client_info": {
+          "package_name": "game.valdcolra.com.game"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "450033359342-p50mp084hu5a84g5rvj0vl5fslq7qubp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDjmWeIDpuYkHSjBxSHG8Y-7_3CQWN1nKc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
