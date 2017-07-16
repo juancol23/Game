@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Accediendo</title>
+    <link href="css/bootstrap.min.css" media="screen" rel="stylesheet" type="text/css">
+    <link href="css/css.css" media="screen" rel="stylesheet" type="text/css">
+      
+
+ 
+</head>
+<body> 
+
+<div class="container">
+ 
+        <h1>Hola Bienvenido</h1>
+ 
+</body>
+
+  <script src="js/jquery-2.1.1.min.js" charset="utf-8"></script>
+  <script src="js/cookie.js" ></script>
+  
+   
+ <script>
+
+      // $.ajax({
+      //     url: 'https://api.everlive.com/v1/vqfkdc51v767oq7x/grupos',
+      //     type: "GET",
+      //     headers: {
+      //         //"Authorization" : "Bearer "+getParameterByName("x"),
+      //          // "X-Everlive-Filter" : JSON.stringify(filter),
+      //          // "X-Everlive-Fields" : JSON.stringify(fieldsExp)
+      //     },
+      //     success: function(data){
+      //       console.log(data);
+
+      //     },
+      //     error: function(err){
+      //       console.log(err);
+
+      //     }
+
+      // });
+
+      leer
+      $.ajax({
+          //url de donde consumo el servicio
+          url: 'https://api.everlive.com/v1/nfo39wewhggohba9/empresas',
+          //tipo get osea pedir
+          type: "GET",
+          headers: {
+              
+          },
+          success: function(data){
+            
+            console.log(data.nombre);
+
+
+          },
+          error: function(err){
+            console.log(err);
+
+          }
+      });
+
+      // //crear
+      var empresas = 
+      {
+        "nombre": 
+        "movistar"
+      }
+
+      $.ajax({
+          url: 'https://api.everlive.com/v1/nfo39wewhggohba9/empresas',
+          type: "POST",
+          headers: {
+              //"Authorization" : "Bearer "+getParameterByName("x"),
+               // "X-Everlive-Filter" : JSON.stringify(filter),
+               // "X-Everlive-Fields" : JSON.stringify(fieldsExp)
+          },
+          contentType: "application/json",
+
+          //pasealo a json
+          data: JSON.stringify(empresas),
+
+          success: function(data){
+            console.log("dato enviado");
+            console.log(data);
+
+          },
+          error: function(err){
+            console.log(err);
+
+          }
+      });
+
+      //editar
+      var xxx = {"nombre": "Juan", "apellido": "Valdemar"};
+      $.ajax({
+          url: 'https://api.everlive.com/v1/vqfkdc51v767oq7x/grupos/'+IDDDDDDD,
+          type: "PUT",
+          headers: {
+              //"Authorization" : "Bearer "+getParameterByName("x"),
+               // "X-Everlive-Filter" : JSON.stringify(filter),
+               // "X-Everlive-Fields" : JSON.stringify(fieldsExp)
+          },
+          contentType: "application/json",
+          data: JSON.stringify(xxx),
+          success: function(data){
+            console.log(data);
+
+          },
+          error: function(err){
+            console.log(err);
+
+          }
+      });
+
+
+      //Eliminar
+      $.ajax({
+          url: 'https://api.everlive.com/v1/vqfkdc51v767oq7x/grupos/'+IDDDDDDD,
+          type: "PUT",
+          headers: {
+              //"Authorization" : "Bearer "+getParameterByName("x"),
+               // "X-Everlive-Filter" : JSON.stringify(filter),
+               // "X-Everlive-Fields" : JSON.stringify(fieldsExp)
+          },
+          success: function(data){
+            console.log(data);
+
+          },
+          error: function(err){
+            console.log(err);
+
+          }
+      });
+
+
+ 
+    </script>
+
+
+</html>
