@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<base href="http://demos.telerik.com/kendo-ui/grid/everlive">
+    <style>html { font-size: 14px; font-family: Arial, Helvetica, sans-serif; }</style>
+    <title></title>
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2017.2.621/styles/kendo.common-material.min.css" />
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2017.2.621/styles/kendo.material.min.css" />
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2017.2.621/styles/kendo.material.mobile.min.css" />
+
+<script src="https://kendo.cdn.telerik.com/2017.2.621/js/jquery.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2017.2.621/js/kendo.all.min.js"></script>
+
+    <script src="https://kendo.cdn.telerik.com/2017.2.621/js/messages/kendo.messages.es-ES.min.js"></script>
+    <script src="http://cdn.kendostatic.com/2013.2.716/js/cultures/kendo.culture.es-ES.min.js"></script>
+    <script type="text/javascript">kendo.culture("es-ES");</script>
+</head>
+<body>
+        <div id="example">
+            <!--[if gte IE 9]>-->
+                <div id="grid"></div>
+            <script src="https://bs-static.cdn.telerik.com/latest/everlive.all.min.js"></script>
+            <script>
+                var everlive = new Everlive({
+                    apiKey: "nfo39wewhggohba9",
+                    scheme: "http"
+                });
+$(document).ready(function() {
+                    // initialize Everlive application with application API key
+                    var dataSource = new kendo.data.DataSource({
+                        autoSync: true,
+                        push: function(e) {
+                            var notification = $("#notification").data("kendoNotification");
+                            notification.success(e.type);
+                        },
+                        type: "everlive",
+                        transport: {
+                            // binding to the Order type in Everlive
+                            typeName: "empresas"
+                        },                        
+                        schema: {
+                            model: {
+                                id: "Id",
+                                fields: {
+                                  
+                                    nombre:  { type: "string" },  
+                                }
+                            }
+                        },
+                        serverPaging: true,
+                        pageSize: 20,
+
+                        serverSorting: true,
+                        sort: { field: 'CreatedAt', dir: 'asc' }
+                    });
+
+                    $("#grid").kendoGrid({
+                        dataSource: dataSource,
+                        // height: 430,
+                        toolbar: ["create"],
+                        editable: true,
+                        sortable: true,
+                        groupable: true,
+                      	pageable: {
+                            refresh: true,
+                            pageSizes: true,
+                            buttonCount: 5
+                        },
+                        filterable: true,
+  columns: [
+                            { field: "nombre" }, 
+                            { command: "destroy", width: 150}
+                        ],
+ 
+                });
+                  });
+                  
+                  </script>
+                  </div>
+                  </body>
+                  </html>     
